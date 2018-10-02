@@ -1,3 +1,6 @@
+
+import java.util.Objects;
+
 /**
  *
  * @author Graham
@@ -6,26 +9,46 @@ public class Client {
 
     public static void testStack(Stack<Integer> stack) {
         try {
+            Integer[] test = new Integer[5];
+            Integer top = 0;
             stack.push(15);
+            test[0] = 15;
             stack.push(21);
+            test[1] = 21;
+            top++;
             System.out.println("Stack size: " + stack.size());
-            System.out.println("Pop: " + stack.pop());
+            Integer pop =stack.pop();
+            System.out.println("Pop: " + pop + " and is correct pop: " + (Objects.equals(pop, test[top--])));
             System.out.println("Is Empty: " + stack.isEmpty());
-            System.out.println("Pop: " + stack.pop());
+            pop = stack.pop();
+            System.out.println("Pop: " + pop + " and is correct pop: " + (Objects.equals(pop, test[top--])));
             System.out.println("Is empty: " + stack.isEmpty());
-            System.out.println("Pop: " + stack.pop());
+            pop = stack.pop();
+            System.out.println("Pop: " + pop + " and is corect pop: " + (pop == null));
             stack.push(47);
+            test[++top] = 47;
             stack.push(91);
-            System.out.println("Top: " + stack.top());
+            test[++top] = 91;
+            Integer topStack = stack.top();
+            System.out.println("Top: " + topStack + " and is correct top: " + (Objects.equals(topStack, test[top])) );
             stack.push(422);
+            test[+top] = 422;
             System.out.println("Stack size: " + stack.size());
-            System.out.println("Pop: " + stack.pop());
+            pop = stack.pop();
+            System.out.println("Pop: " + pop + " and is correct pop: " + (Objects.equals(pop, test[top--])));
             stack.push(6423);
+            test[++top]=6423;
             stack.push(8231);
-            System.out.println("Pop: " + stack.pop());
+            test[++top] = 8231;
+            pop = stack.pop();
+            System.out.println("Pop: " +  pop + " and is correct pop: " + (Objects.equals(pop, test[top--])));
         }
-        catch (Exception e){
-            e.printStackTrace();
+        catch (IllegalStateException e){
+            System.out.print("\u001b[31m\u001b[1m");
+            e.printStackTrace(System.out);
+        }
+        finally{
+            System.out.print("\n");
         }
 
     }
@@ -47,7 +70,11 @@ public class Client {
         }
         
         catch(Exception e){
-            e.printStackTrace();
+            System.out.print("\u001b[31m\u001b[1m");
+            e.printStackTrace(System.out);
+        }
+        finally{
+            System.out.print("\n");
         }
     }
     
