@@ -1,3 +1,12 @@
+/**
+* A collection of objects that are inserted and removed according to the last-in
+* first-out principle. Although similar in purpose, this interface differs from
+* java.util.Stack.
+*
+* @author Michael T. Goodrich
+* @author Roberto Tamassia
+* @author Michael H. Goldwasser
+*/
 /** A simplified version of the java.util.List interface. */
 public interface List<E> { 
     /** Returns the number of elements in this list. */

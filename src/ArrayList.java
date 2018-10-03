@@ -1,3 +1,12 @@
+/**
+* A collection of objects that are inserted and removed according to the last-in
+* first-out principle. Although similar in purpose, this interface differs from
+* java.util.Stack.
+*
+* @author Michael T. Goodrich
+* @author Roberto Tamassia
+* @author Michael H. Goldwasser
+*/
 public class ArrayList<E> implements List<E> {
     // instance variables
     public static final int CAPACITY=16; // default array capacity
@@ -38,22 +47,22 @@ public class ArrayList<E> implements List<E> {
         checkIndex(i, size + 1);
         if (size == data.length) // not enough capacity
             resize(2 * data.length);
-        for (int k=size-1; k >= i; k--) {// start by shifting rightmost
+        for (int k=size; k > i; k--) // start by shifting rightmost
             data[k+1] = data[k];
-            data[i] = e; // ready to place the new element
-            size++;
-        }
+        data[i] = e; // ready to place the new element
+        size++;
+
     } 
     
     /** Removes/returns the element at index i, shifting subsequent elements earlier. */
     public E remove(int i) throws IndexOutOfBoundsException { 
         checkIndex(i, size);
         E temp = data[i];
-        for (int k=i; k < size-1; k++){ // shift elements to fill hole
+        for (int k=i; k < size-1; k++) // shift elements to fill hole
             data[k] = data[k+1];
-            data[size-1] = null; // help garbage collection
-            size--;
-        }
+        data[size-1] = null; // help garbage collection
+        size--;
+        
         return temp;
     } 
     

@@ -1,3 +1,13 @@
+/**
+* A collection of objects that are inserted and removed according to the last-in
+* first-out principle. Although similar in purpose, this interface differs from
+* java.util.Stack.
+*
+* @author Michael T. Goodrich
+* @author Roberto Tamassia
+* @author Michael H. Goldwasser
+*/
+
 /** Implementation of the queue ADT using a fixed-length array. */
 public class ArrayQueue<E> implements Queue<E> {
     // instance variables
